@@ -1,13 +1,29 @@
-import 'dart:isolate' show Isolate;
-import 'dart:io' show File;
+import 'package:dartbook_theme_default/theme.dart' as t;
 
-Future<String> _resolvePackageLocation(String path) async {
-  final uri = Uri.parse('package:dartbook_theme_default$path');
-  final pkgUri = await Isolate.resolvePackageUri(uri);
-  return pkgUri?.toFilePath() ?? '';
-}
+const _usage = '''The theme resource package for dartbook.
 
-void main() async {
-  final path = await _resolvePackageLocation('/');
-  print(path);
+Usage: dartbook-theme [arguments]
+
+-h, --help            Print this usage information.
+-l, --location        Print the file system location of current package.
+''';
+
+Future<void> main(List<String> args) async {
+  var location = false;
+  final it = args.iterator;
+  while (it.moveNext()) {
+    switch (it.current) {
+      case '-l':
+      case '--location':
+        location = true;
+        break;
+      default:
+        print(_usage);
+    }
+  }
+
+  if (location) {
+    final path = await t.fsLocation();
+    print(path);
+  }
 }
