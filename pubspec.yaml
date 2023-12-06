@@ -1,7 +1,7 @@
 name: dartbook_theme_default
-description: The 'default' theme resource package for dartbook.
+description: A resource package just for building an ebook by `dartbook`. It could be added in `pubspec.yaml` as a dependency, also be run in command line.
 version: 1.0.0
-homepage: https://github.com/lindeer/dartbook
+homepage: https://github.com/lindeer/dartbook-theme-default
 
 environment:
   sdk: '>=2.12.0 <4.0.0'
