@@ -1,4 +1,4 @@
-import 'package:dartbook_theme_default/theme.dart' as t;
+import 'package:dartbook_theme_default/dartbook_theme_default.dart' as t;
 
 const _usage = '''The theme resource package for dartbook.
 
